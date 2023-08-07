@@ -2,13 +2,9 @@ package com.mjc.school.main;
 
 
 import com.mjc.school.service.DTO.NewsDTO;
-import com.mjc.school.web.ConnectorImpl;
-import com.sun.jdi.connect.Connector;
+import com.mjc.school.web.impl.ConnectorImpl;
 
-import javax.swing.plaf.synth.SynthDesktopIconUI;
-import java.util.List;
 import java.util.Scanner;
-import java.util.stream.Stream;
 
 public class Commands {
     Scanner scanner = new Scanner(System.in);
