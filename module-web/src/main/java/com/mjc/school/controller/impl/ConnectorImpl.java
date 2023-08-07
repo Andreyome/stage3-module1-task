@@ -1,8 +1,8 @@
-package com.mjc.school.web.impl;
+package com.mjc.school.controller.impl;
 
 import com.mjc.school.service.DTO.NewsDTO;
 import com.mjc.school.service.impl.NewsServiceImpl;
-import com.mjc.school.web.Conector;
+import com.mjc.school.controller.Conector;
 
 import java.util.List;
 

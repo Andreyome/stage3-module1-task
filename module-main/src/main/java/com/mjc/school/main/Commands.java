@@ -2,7 +2,7 @@ package com.mjc.school.main;
 
 
 import com.mjc.school.service.DTO.NewsDTO;
-import com.mjc.school.web.impl.ConnectorImpl;
+import com.mjc.school.controller.impl.ConnectorImpl;
 
 import java.util.Scanner;
 

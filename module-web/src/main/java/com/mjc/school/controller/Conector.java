@@ -1,4 +1,4 @@
-package com.mjc.school.web;
+package com.mjc.school.controller;
 
 import java.util.List;
 
