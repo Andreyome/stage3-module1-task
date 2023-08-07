@@ -1,15 +1,27 @@
 package com.mjc.school.service.DTO;
 
+import java.time.LocalDateTime;
+
 public class NewsDTO {
     private long id;
     private String title;
     private String content;
+    private LocalDateTime createTime;
+    private LocalDateTime lastUpdateTime;
     private long authorId;
 
     public NewsDTO(long id, String title, String content, long authorId) {
         this.id = id;
         this.title = title;
         this.content = content;
+        this.authorId = authorId;
+    }
+    public NewsDTO(long id, String title, String content,LocalDateTime crTime,LocalDateTime lastUpTime, long authorId) {
+        this.id = id;
+        this.title = title;
+        this.content = content;
+        this.createTime = crTime;
+        this.lastUpdateTime = lastUpTime;
         this.authorId = authorId;
     }
 
@@ -52,5 +64,25 @@ public class NewsDTO {
 
     public void setAuthorId(long authorId) {
         this.authorId = authorId;
+    }
+    @Override
+    public String toString(){
+        return "News id: "+id+"News title: "+title+"News content: "+content+"News author id: "+authorId+ "Create time: "+ createTime+"Last change time: "+lastUpdateTime;
+    }
+
+    public LocalDateTime getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(LocalDateTime createTime) {
+        this.createTime = createTime;
+    }
+
+    public LocalDateTime getLastUpdateTime() {
+        return lastUpdateTime;
+    }
+
+    public void setLastUpdateTime(LocalDateTime lastUpdateTime) {
+        this.lastUpdateTime = lastUpdateTime;
     }
 }

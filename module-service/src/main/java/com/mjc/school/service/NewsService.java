@@ -1,7 +1,7 @@
 package com.mjc.school.service;
 
 import Validator.Validator;
-import com.mjc.school.repository.RepositoryImpl;
+import com.mjc.school.repository.impl.RepositoryImpl;
 import com.mjc.school.repository.models.NewsModel;
 import com.mjc.school.service.DTO.NewsDTO;
 import com.mjc.school.service.Mapping.Mapper;
@@ -11,9 +11,10 @@ import java.util.List;
 
 public class NewsService implements Service<NewsDTO> {
     private final RepositoryImpl repository;
-    Validator validator = new Validator();
+    Validator validator;
     public NewsService(){
         this.repository = new RepositoryImpl();
+        this.validator = new Validator();
     }
 
     @Override
@@ -32,10 +33,9 @@ public class NewsService implements Service<NewsDTO> {
     }
 
     @Override
-    public NewsDTO getNewsById(long id) {
-        NewsModel news = repository.getNewsById(id);
-        if (news == null){
-            throw new NotFoundException("No such news with provided id.");
+    public NewsDTO getNewsById(Long id) {
+        if(id>repository.readAll().size()){
+            throw new RuntimeException("No such news with provided id.");
         }
         return Mapper.INSTANCE.newsToDto(repository.getNewsById(id));
     }
@@ -47,7 +47,7 @@ public class NewsService implements Service<NewsDTO> {
     }
 
     @Override
-    public Boolean deleteNewsById(long id) {
+    public Boolean deleteNewsById(Long id) {
          if(!repository.deleteNewsById(id)){
              throw new NotFoundException("No such news with provided id.");
          }

@@ -5,9 +5,11 @@ import com.mjc.school.service.NewsService;
 
 import java.util.List;
 
-public class Connector implements Conector<NewsDTO>{
-    NewsService service = new NewsService();
-
+public class ConnectorImpl implements Conector<NewsDTO> {
+    NewsService service;
+    public ConnectorImpl(){
+        this.service= new NewsService();
+    }
 
     @Override
     public NewsDTO create(NewsDTO newsDTO) {

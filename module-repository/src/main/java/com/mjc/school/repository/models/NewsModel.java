@@ -1,6 +1,7 @@
 package com.mjc.school.repository.models;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 public class NewsModel {
     private long id;
@@ -64,5 +65,8 @@ public class NewsModel {
 
     public void setId(long id) {
         this.id = id;
+    }
+    public String toString(){
+        return " News id: "+id+" News title: "+title+" News content: "+content+" News author id: "+authorId+ " Create time: "+ createTime.format(DateTimeFormatter.ISO_INSTANT)+" Last change time: "+lastUpdateTime.format(DateTimeFormatter.ISO_INSTANT);
     }
 }

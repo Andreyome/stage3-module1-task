@@ -1,13 +1,10 @@
 package Validator;
 
 import com.mjc.school.repository.DataSource;
-import com.mjc.school.repository.RepositoryImpl;
-import com.mjc.school.repository.data.AuthorData;
 import com.mjc.school.repository.models.AuthorModel;
-import com.mjc.school.service.DTO.AuthorDTO;
 import com.mjc.school.service.DTO.NewsDTO;
-import com.mjc.school.service.Mapping.Mapper;
 
+import java.util.ArrayList;
 import java.util.List;
 
 public class Validator {
@@ -21,8 +18,9 @@ public class Validator {
     public Validator(){
         dataSource = DataSource.getInstance();
         authorModel = dataSource.getAllAuthors();
+        authorIds =new ArrayList<>();
         for (AuthorModel tmp:authorModel){
-            authorIds.add(tmp.getId());
+            this.authorIds.add(tmp.getId());
         }
     }
     public void validateNews(NewsDTO newsDTO){

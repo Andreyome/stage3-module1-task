@@ -26,7 +26,7 @@ public class NewsData {
             List<String> tmp = cr.lines().toList();
             List<String> titlesTmp = nr.lines().toList();
             news =new ArrayList<>();
-            for(int i = 1;i< tmp.size();i++)
+            for(int i = 1;i<=tmp.size();i++)
             {
                 news.add(new NewsModel(i,titlesTmp.get(i-1),tmp.get(i-1), LocalDateTime.now(),LocalDateTime.now(),i));
             }
@@ -51,4 +51,5 @@ public class NewsData {
     public List<NewsModel> getNews() {
         return news;
     }
+
 }

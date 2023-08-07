@@ -12,7 +12,7 @@ import java.util.List;
 public class AuthorData {
     private final String authorPath = "module-repository/src/main/resources/author.txt";
     List<AuthorModel> authors;
-    private static volatile AuthorData Instance = new AuthorData();
+    private static volatile AuthorData Instance;
 
     public AuthorData() {
         initiate();
