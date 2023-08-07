@@ -1,6 +1,7 @@
 package com.mjc.school.service.impl;
 
 import Validator.ValidatorImpl;
+import com.mjc.school.repository.Repository;
 import com.mjc.school.repository.impl.RepositoryImpl;
 import com.mjc.school.repository.models.NewsModel;
 import com.mjc.school.service.DTO.NewsDTO;
@@ -12,7 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class NewsServiceImpl implements Service<NewsDTO> {
-    private final RepositoryImpl newsRepository;
+    private final Repository<NewsModel>  newsRepository;
     private final ValidatorImpl newsValidator;
 
     public NewsServiceImpl(){
