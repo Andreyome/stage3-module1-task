@@ -1,18 +1,20 @@
-package com.mjc.school.service;
+package com.mjc.school.service.impl;
 
 import Validator.Validator;
 import com.mjc.school.repository.impl.RepositoryImpl;
 import com.mjc.school.repository.models.NewsModel;
 import com.mjc.school.service.DTO.NewsDTO;
 import com.mjc.school.service.Mapping.Mapper;
+import com.mjc.school.service.NotFoundException;
+import com.mjc.school.service.Service;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsService implements Service<NewsDTO> {
+public class NewsServiceImpl implements Service<NewsDTO> {
     private final RepositoryImpl repository;
     Validator validator;
-    public NewsService(){
+    public NewsServiceImpl(){
         this.repository = new RepositoryImpl();
         this.validator = new Validator();
     }

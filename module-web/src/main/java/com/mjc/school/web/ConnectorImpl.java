@@ -1,14 +1,14 @@
 package com.mjc.school.web;
 
 import com.mjc.school.service.DTO.NewsDTO;
-import com.mjc.school.service.NewsService;
+import com.mjc.school.service.impl.NewsServiceImpl;
 
 import java.util.List;
 
 public class ConnectorImpl implements Conector<NewsDTO> {
-    NewsService service;
+    NewsServiceImpl service;
     public ConnectorImpl(){
-        this.service= new NewsService();
+        this.service= new NewsServiceImpl();
     }
 
     @Override
