@@ -4,7 +4,7 @@ import Validator.ValidatorImpl;
 import com.mjc.school.repository.Repository;
 import com.mjc.school.repository.impl.RepositoryImpl;
 import com.mjc.school.repository.models.NewsModel;
-import com.mjc.school.service.DTO.NewsDTO;
+import com.mjc.school.service.dto.NewsDto;
 import com.mjc.school.service.Mapping.Mapper;
 import com.mjc.school.service.NotFoundException;
 import com.mjc.school.service.Service;
@@ -12,7 +12,7 @@ import com.mjc.school.service.Service;
 import java.util.ArrayList;
 import java.util.List;
 
-public class NewsServiceImpl implements Service<NewsDTO> {
+public class NewsServiceImpl implements Service<NewsDto> {
     private final Repository<NewsModel>  newsRepository;
     private final ValidatorImpl newsValidator;
 
@@ -22,22 +22,22 @@ public class NewsServiceImpl implements Service<NewsDTO> {
     }
 
     @Override
-    public List<NewsDTO> readAll() {
+    public List<NewsDto> readAll() {
         List<NewsModel> list= newsRepository.readAll();
-        List<NewsDTO> result = new ArrayList<>();
+        List<NewsDto> result = new ArrayList<>();
         list.forEach(i->result.add(Mapper.INSTANCE.newsToDto(i)));
         return result;
     }
 
     @Override
-    public NewsDTO create(NewsDTO newsDTO) {
+    public NewsDto create(NewsDto newsDTO) {
         newsValidator.validateNews(newsDTO);
         NewsModel news = newsRepository.create(Mapper.INSTANCE.newsDtoToModel(newsDTO));
         return Mapper.INSTANCE.newsToDto(news);
     }
 
     @Override
-    public NewsDTO readById(Long id) {
+    public NewsDto readById(Long id) {
         if(id> newsRepository.readAll().size()){
             throw new RuntimeException("No such news with provided id.");
         }
@@ -45,7 +45,7 @@ public class NewsServiceImpl implements Service<NewsDTO> {
     }
 
     @Override
-    public NewsDTO updateNews(NewsDTO updatedNews) {
+    public NewsDto updateNews(NewsDto updatedNews) {
         newsValidator.validateNews(updatedNews);
         return Mapper.INSTANCE.newsToDto(newsRepository.updateNews(Mapper.INSTANCE.newsDtoToModel(updatedNews)));
     }

@@ -1,8 +1,8 @@
-package com.mjc.school.service.DTO;
+package com.mjc.school.service.dto;
 
 import java.time.LocalDateTime;
 
-public class NewsDTO {
+public class NewsDto {
     private long id;
     private String title;
     private String content;
@@ -10,13 +10,13 @@ public class NewsDTO {
     private LocalDateTime lastUpdateTime;
     private long authorId;
 
-    public NewsDTO(long id, String title, String content, long authorId) {
+    public NewsDto(long id, String title, String content, long authorId) {
         this.id = id;
         this.title = title;
         this.content = content;
         this.authorId = authorId;
     }
-    public NewsDTO(long id, String title, String content,LocalDateTime crTime,LocalDateTime lastUpTime, long authorId) {
+    public NewsDto(long id, String title, String content, LocalDateTime crTime, LocalDateTime lastUpTime, long authorId) {
         this.id = id;
         this.title = title;
         this.content = content;
@@ -25,10 +25,10 @@ public class NewsDTO {
         this.authorId = authorId;
     }
 
-    public NewsDTO() {
+    public NewsDto() {
     }
 
-    public NewsDTO(String title, String content, long authorId) {
+    public NewsDto(String title, String content, long authorId) {
         this.title = title;
         this.content = content;
         this.authorId = authorId;

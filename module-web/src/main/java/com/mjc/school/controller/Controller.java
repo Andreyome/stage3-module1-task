@@ -5,8 +5,8 @@ import java.util.List;
 public interface Controller<T> {
     T create (T t);
     T update (T t);
-    T read(long id);
-    Boolean delete(long id);
+    T readBy(Long id);
+    Boolean delete(Long id);
     List<T> readAll();
 
 }
