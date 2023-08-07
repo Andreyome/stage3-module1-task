@@ -7,7 +7,7 @@ import com.mjc.school.service.DTO.NewsDTO;
 import java.util.ArrayList;
 import java.util.List;
 
-public class Validator {
+public class ValidatorImpl {
     private final String AUTHOR_ERROR = "Author with provided id not existing.";
     private final String TITLE_ERROR = "Title length should be between 5-30 length.";
     private final String CONTENT_ERROR = "News content should be between 5-255 length.";
@@ -15,7 +15,7 @@ public class Validator {
     List<AuthorModel> authorModel;
     List <Long> authorIds;
 
-    public Validator(){
+    public ValidatorImpl(){
         dataSource = DataSource.getInstance();
         authorModel = dataSource.getAllAuthors();
         authorIds =new ArrayList<>();

@@ -24,7 +24,7 @@ public class ConnectorImpl implements Conector<NewsDTO> {
 
     @Override
     public NewsDTO read(long id) {
-        return service.getNewsById(id);
+        return service.readById(id);
     }
 
     @Override
