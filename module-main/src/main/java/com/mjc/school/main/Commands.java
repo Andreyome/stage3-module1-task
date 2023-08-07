@@ -2,13 +2,13 @@ package com.mjc.school.main;
 
 
 import com.mjc.school.service.DTO.NewsDTO;
-import com.mjc.school.controller.impl.ConnectorImpl;
+import com.mjc.school.controller.impl.ControllerImpl;
 
 import java.util.Scanner;
 
 public class Commands {
     Scanner scanner = new Scanner(System.in);
-    ConnectorImpl connector = new ConnectorImpl();
+    ControllerImpl connector = new ControllerImpl();
     public Commands(){}
     public void readAll(){
         System.out.println("All news:");

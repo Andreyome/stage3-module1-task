@@ -2,13 +2,13 @@ package com.mjc.school.controller.impl;
 
 import com.mjc.school.service.DTO.NewsDTO;
 import com.mjc.school.service.impl.NewsServiceImpl;
-import com.mjc.school.controller.Conector;
+import com.mjc.school.controller.Controller;
 
 import java.util.List;
 
-public class ConnectorImpl implements Conector<NewsDTO> {
+public class ControllerImpl implements Controller<NewsDTO> {
     NewsServiceImpl service;
-    public ConnectorImpl(){
+    public ControllerImpl(){
         this.service= new NewsServiceImpl();
     }
 
