@@ -4,11 +4,10 @@ import com.mjc.school.repository.DataSource;
 import com.mjc.school.repository.Repository;
 import com.mjc.school.repository.models.NewsModel;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 public class RepositoryImpl implements Repository<NewsModel> {
-    private DataSource dataSource;
+    private final DataSource dataSource;
 
     public RepositoryImpl() {
         dataSource = DataSource.getInstance();
@@ -30,19 +29,19 @@ public class RepositoryImpl implements Repository<NewsModel> {
     }
 
     @Override
-    public NewsModel getNewsById(Long id) {
+    public NewsModel readById(Long id) {
         return dataSource.getAllNews().stream().filter(eachNew ->eachNew.getId()==id).findFirst().orElseThrow();
     }
 
     @Override
     public NewsModel updateNews(NewsModel updatedNews) {
-        dataSource.getAllNews().remove(getNewsById(updatedNews.getId()));
+        dataSource.getAllNews().remove(readById(updatedNews.getId()));
         dataSource.getAllNews().add(updatedNews);
         return updatedNews;
     }
 
     @Override
     public Boolean deleteNewsById(Long id) {
-        return dataSource.getAllNews().remove(getNewsById(id));
+        return dataSource.getAllNews().remove(readById(id));
     }
 }

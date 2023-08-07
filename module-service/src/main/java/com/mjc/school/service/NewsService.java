@@ -37,7 +37,7 @@ public class NewsService implements Service<NewsDTO> {
         if(id>repository.readAll().size()){
             throw new RuntimeException("No such news with provided id.");
         }
-        return Mapper.INSTANCE.newsToDto(repository.getNewsById(id));
+        return Mapper.INSTANCE.newsToDto(repository.readById(id));
     }
 
     @Override
