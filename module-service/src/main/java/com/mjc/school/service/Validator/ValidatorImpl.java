@@ -1,4 +1,4 @@
-package Validator;
+package com.mjc.school.service.Validator;
 
 import com.mjc.school.repository.DataSource;
 import com.mjc.school.repository.models.AuthorModel;

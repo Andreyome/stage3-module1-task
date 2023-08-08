@@ -9,18 +9,19 @@ import java.util.List;
 
 public class ControllerImpl implements Controller<NewsDto> {
     private final Service<NewsDto> service;
-    public ControllerImpl(){
-        this.service= new NewsServiceImpl();
+
+    public ControllerImpl() {
+        this.service = new NewsServiceImpl();
     }
 
     @Override
-    public NewsDto create(NewsDto newsDTO) {
-        return service.create(newsDTO);
+    public NewsDto create(NewsDto newsDto) {
+        return service.create(newsDto);
     }
 
     @Override
-    public NewsDto update(NewsDto newsDTO) {
-        return service.updateNews(newsDTO);
+    public NewsDto update(NewsDto newsDto) {
+        return service.updateNews(newsDto);
     }
 
     @Override
