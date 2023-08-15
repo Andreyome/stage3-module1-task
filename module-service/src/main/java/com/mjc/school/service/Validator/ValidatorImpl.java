@@ -2,7 +2,7 @@ package com.mjc.school.service.Validator;
 
 import com.mjc.school.repository.DataSource;
 import com.mjc.school.repository.models.AuthorModel;
-import com.mjc.school.service.dto.NewsDto;
+import com.mjc.school.service.dto.NewsDtoObject;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -23,7 +23,7 @@ public class ValidatorImpl {
             this.authorIds.add(tmp.getId());
         }
     }
-    public void validateNews(NewsDto newsDTO){
+    public void validateNews(NewsDtoObject newsDTO){
         Long authorId= newsDTO.getAuthorId();
         String title = newsDTO.getTitle();
         String content = newsDTO.getContent();

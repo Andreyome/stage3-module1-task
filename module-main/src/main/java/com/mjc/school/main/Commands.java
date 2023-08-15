@@ -1,7 +1,7 @@
 package com.mjc.school.main;
 
 
-import com.mjc.school.service.dto.NewsDto;
+import com.mjc.school.service.dto.NewsDtoObject;
 import com.mjc.school.controller.impl.ControllerImpl;
 
 import java.time.LocalDateTime;
@@ -22,7 +22,7 @@ public class Commands {
         String content = scanner.nextLine();
         System.out.println("Write news author id: ");
         long authorId = Long.parseLong(scanner.nextLine());
-        connector.create(new NewsDto(title,content, LocalDateTime.now(),LocalDateTime.now(), authorId));
+        connector.create(new NewsDtoObject(title,content, LocalDateTime.now(),LocalDateTime.now(), authorId));
     }
     public void getNewsById() {
             System.out.println("Write news id: ");
@@ -37,7 +37,7 @@ public class Commands {
         String content = scanner.nextLine();
         System.out.println("Write news author id: ");
         long authorId = Long.parseLong(scanner.nextLine());
-        connector.update(new NewsDto(id,title,content,authorId));
+        connector.update(new NewsDtoObject(id,title,content,authorId));
     }
     public void deleteNewsById (){
         System.out.println("Write news id: ");

@@ -1,31 +1,31 @@
 package com.mjc.school.controller.impl;
 
-import com.mjc.school.service.dto.NewsDto;
+import com.mjc.school.service.dto.NewsDtoObject;
 import com.mjc.school.service.Service;
 import com.mjc.school.service.impl.NewsServiceImpl;
 import com.mjc.school.controller.Controller;
 
 import java.util.List;
 
-public class ControllerImpl implements Controller<NewsDto> {
-    private final Service<NewsDto> newsService;
+public class ControllerImpl implements Controller<NewsDtoObject> {
+    private final Service<NewsDtoObject> newsService;
 
     public ControllerImpl() {
         this.newsService = NewsServiceImpl.getInstance();
     }
 
     @Override
-    public NewsDto create(NewsDto newsDto) {
+    public NewsDtoObject create(NewsDtoObject newsDto) {
         return newsService.create(newsDto);
     }
 
     @Override
-    public NewsDto update(NewsDto newsDto) {
+    public NewsDtoObject update(NewsDtoObject newsDto) {
         return newsService.updateNews(newsDto);
     }
 
     @Override
-    public NewsDto readBy(Long id) {
+    public NewsDtoObject readBy(Long id) {
         return newsService.readById(id);
     }
 
@@ -35,7 +35,7 @@ public class ControllerImpl implements Controller<NewsDto> {
     }
 
     @Override
-    public List<NewsDto> readAll() {
+    public List<NewsDtoObject> readAll() {
         return newsService.readAll();
     }
 }
