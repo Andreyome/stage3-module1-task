@@ -10,6 +10,7 @@ public interface Mapper {
     Mapper INSTANCE = Mappers.getMapper(Mapper.class);
 
     NewsDto newsToDto(NewsModel newsModel);
+    NewsModel newsDtoToModelCreate(NewsDto newsDto);
     @Mapping(target = "createTime", ignore = true)
     @Mapping(target = "lastUpdateTime", ignore = true)
     NewsModel newsDtoToModel(NewsDto newsDTO);

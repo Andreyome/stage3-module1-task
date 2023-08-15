@@ -8,34 +8,34 @@ import com.mjc.school.controller.Controller;
 import java.util.List;
 
 public class ControllerImpl implements Controller<NewsDto> {
-    private final Service<NewsDto> service;
+    private final Service<NewsDto> newsService;
 
     public ControllerImpl() {
-        this.service = new NewsServiceImpl();
+        this.newsService = NewsServiceImpl.getInstance();
     }
 
     @Override
     public NewsDto create(NewsDto newsDto) {
-        return service.create(newsDto);
+        return newsService.create(newsDto);
     }
 
     @Override
     public NewsDto update(NewsDto newsDto) {
-        return service.updateNews(newsDto);
+        return newsService.updateNews(newsDto);
     }
 
     @Override
     public NewsDto readBy(Long id) {
-        return service.readById(id);
+        return newsService.readById(id);
     }
 
     @Override
     public Boolean delete(Long id) {
-        return service.deleteNewsById(id);
+        return newsService.deleteNewsById(id);
     }
 
     @Override
     public List<NewsDto> readAll() {
-        return service.readAll();
+        return newsService.readAll();
     }
 }

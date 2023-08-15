@@ -15,6 +15,13 @@ import java.util.List;
 public class NewsServiceImpl implements Service<NewsDto> {
     private final Repository<NewsModel> newsRepository;
     private final ValidatorImpl newsValidator;
+    private static NewsServiceImpl INSTANCE;
+    public static NewsServiceImpl getInstance(){
+        if (INSTANCE== null){
+            INSTANCE=new NewsServiceImpl();
+        }
+        return INSTANCE;
+    }
 
     public NewsServiceImpl() {
         this.newsRepository = new RepositoryImpl();
@@ -32,7 +39,7 @@ public class NewsServiceImpl implements Service<NewsDto> {
     @Override
     public NewsDto create(NewsDto newsDTO) {
         newsValidator.validateNews(newsDTO);
-        NewsModel news = newsRepository.create(Mapper.INSTANCE.newsDtoToModel(newsDTO));
+        NewsModel news = newsRepository.create(Mapper.INSTANCE.newsDtoToModelCreate(newsDTO));
         return Mapper.INSTANCE.newsToDto(news);
     }
 

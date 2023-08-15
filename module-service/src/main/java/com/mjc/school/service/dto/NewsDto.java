@@ -16,8 +16,7 @@ public class NewsDto {
         this.content = content;
         this.authorId = authorId;
     }
-    public NewsDto(long id, String title, String content, LocalDateTime crTime, LocalDateTime lastUpTime, long authorId) {
-        this.id = id;
+    public NewsDto( String title, String content, LocalDateTime crTime, LocalDateTime lastUpTime, long authorId) {
         this.title = title;
         this.content = content;
         this.createTime = crTime;
